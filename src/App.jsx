@@ -9,6 +9,9 @@ function App() {
   const [dicesRemoved, setRemovedDices] = useState(0);
   const [displayRemoved, setDisplayRemoved] = useState([]);
   const [addedDices, setAddedDices] = useState(0);
+  const [all6, setAll6] = useState(0);
+  const [all5, setAll5] = useState(0);
+  const [all4, setAll4] = useState(0);
   // --------
   function getRandomNumber() {
     return Math.floor(Math.random() * 6) + 1;
@@ -31,6 +34,9 @@ function App() {
     setRemovedDices(0);
     setDisplayRemoved([]);
     setAddedDices(0);
+    setAll6(0);
+    setAll5(0);
+    setAll4(0);
   }
 
   function handleAddDice() {
@@ -68,6 +74,16 @@ function App() {
     setDisplayRemoved((prevDices) => [...prevDices, ...removedDicesToDisplay]);
   }
 
+  function handleCountDices() {
+    console.log("ok", diceQuantity.value);
+    const all6 = diceQuantity.filter((dice) => dice.value === 6);
+    setAll6(all6.length);
+    const all5 = diceQuantity.filter((dice) => dice.value === 5);
+    setAll5(all5.length);
+    const all4 = diceQuantity.filter((dice) => dice.value === 4);
+    setAll4(all4.length);
+  }
+
   return (
     <div className="container">
       <div className="dices">
@@ -93,25 +109,19 @@ function App() {
           <h2>Dices rolled: {dicesRolled}</h2>
           <h2>Removed: {dicesRemoved}</h2>
           <h2>Dices added: {addedDices}</h2>
+          <div className="statistics">
+            <h3 className="dices-count">Nb of 6:</h3>
+            <div className="count">{all6}</div>
+            <h3 className="dices-count">Nb of 5:</h3>
+            <div className="count">{all5}</div>
+            <h3 className="dices-count">Nb of 4:</h3>
+            <div className="count">{all4}</div>
+          </div>
         </div>
       </div>
       {/* --------PARAMS^ */}
 
       <div className="allDices">
-        <div className="inGame">
-          <p className="info">In game:</p>
-          {diceQuantity.map((dice) => {
-            return (
-              <div
-                key={dice.id}
-                className={`diceRolled ${dice.added}`}
-                onClick={() => handleRemoveDice(dice.id)}
-              >
-                {dice.value}
-              </div>
-            );
-          })}
-        </div>
         <div className="buttons">
           <button className="btn addDice" id="add" onClick={handleAddDice}>
             Add dice
@@ -137,10 +147,27 @@ function App() {
           >
             Delete 3
           </button>
+          <button className="btn count-btn" onClick={handleCountDices}>
+            Count
+          </button>
+        </div>
+        <p className="info">In game:</p>
+        <div className="inGame">
+          {diceQuantity.map((dice) => {
+            return (
+              <div
+                key={dice.id}
+                className={`diceRolled ${dice.added}`}
+                onClick={() => handleRemoveDice(dice.id)}
+              >
+                {dice.value}
+              </div>
+            );
+          })}
         </div>
       </div>
+
       <div className="removed">
-        {/* REMOVED */}
         <div className="removedDices">
           <p className="info">Removed:</p>
           {displayRemoved.map((dice) => {
@@ -151,6 +178,12 @@ function App() {
             );
           })}
         </div>
+      </div>
+      <div className="footer">
+        <div className="footer-info">Copyright Monika Januszek</div>
+        <a className="footer-info" href="https://github.com/MJanuszek">
+          https://github.com/MJanuszek
+        </a>
       </div>
     </div>
   );

@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Jaro:opsz@6..72&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Sedgwick+Ave+Display&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,11 +8,11 @@
 }
 body {
   background-image: url("../src/assets/mockaroon-YqUeLG7fMr4-unsplash.jpg");
-  /* background-image: url("../src/assets/rohro-clark-Jgdbp3pPj9Q-unsplash.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
 }
 .container {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,13 +31,16 @@ body {
   border: 4px solid black;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5);
   padding: 40px;
-  margin-top: 7vh;
+  margin-top: 1vh;
+}
+.roll {
+  font-family: "Permanent Marker", serif;
 }
 
 .dice {
   height: 68px;
   width: 68px;
-  margin-top: 3vh;
+  margin-top: 1vh;
   margin-bottom: 0.3vh;
 }
 
@@ -45,14 +51,13 @@ body {
 .allDices {
   padding: 20px;
   height: auto;
-  min-height: 17vh;
   width: 60vw;
   max-width: 60vw;
   background-color: #e6e6e6;
   background-image: linear-gradient(to right, #b9b9b9 0%, #e4e2e2 100%);
   border: 4px solid black;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5);
-  margin-top: 2vh;
+  margin-top: 1vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -62,7 +67,7 @@ body {
 
 .inGame {
   display: flex;
-  margin-bottom: 3vh;
+  margin-bottom: 2vh;
   flex-wrap: wrap;
 }
 
@@ -70,21 +75,20 @@ body {
   color: #04800f;
   box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.5);
   background-color: #fff;
-  height: 80px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
   border: 5px solid rgb(29, 157, 0);
   margin-left: 0.4vw;
-  margin-top: 0.2vh;
   display: flex;
   margin-top: 1vh;
   justify-content: center;
   align-items: center;
-  font-size: 2em;
+  font-size: 2.2em;
   border-radius: 12px;
 }
 
 .diceRolled:hover {
-  background-color: #55ec61;
+  background-color: #daec55;
 }
 .params {
   font-size: 1.1em;
@@ -94,16 +98,16 @@ body {
 .quantity {
   padding: 10px;
   font-size: 1.2em;
+  max-width: 7vw;
 }
 
 .removedDices {
   padding: 20px;
   color: rgb(255, 255, 255);
-  margin-top: 5vh;
+  margin-top: 2vh;
   border: 4px solid black;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5);
   height: auto;
-  min-height: 17vh;
   width: 60vw;
   max-width: 60vw;
   background-image: linear-gradient(to left, #9b9b9b 0%, #e4e2e2 100%);
@@ -120,8 +124,8 @@ body {
 
 .diceRemoved {
   background-color: #ffffff;
-  height: 80px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
   border-radius: 12px;
   border: 5px solid rgb(202, 7, 7);
   margin-left: 0.4vw;
@@ -138,17 +142,57 @@ body {
   border: 3px solid rgb(36, 36, 36);
   margin-left: 3px;
   font-size: 1.6em;
-  padding: 20px;
+  padding: 10px;
+  font-family: "Permanent Marker", serif;
 }
 .btn:hover {
   background-color: #2bf9c2;
 }
 
 .roll {
-  margin-bottom: 3vh;
+  margin-bottom: 2vh;
   font-size: 1.5em;
 }
 .added {
   border: 5px solid rgb(33, 85, 239);
   color: #334bc5;
+}
+
+.statistics {
+  width: 40vw;
+  margin-top: 1.5vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.dices-count {
+  font-family: "Sedgwick Ave Display", serif;
+  font-size: 1.4em;
+  display: flex;
+  border-top: 1px solid rgb(0, 0, 0);
+  box-shadow: 0px -8px 5px -5px rgba(255, 220, 25, 0.952);
+}
+
+.count {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  font-size: 1.7em;
+  font-family: "Jaro", serif;
+  border-radius: 10px;
+  margin-top: 1vh;
+  box-shadow: 6px 5px 5px #face3bc7;
+}
+
+.footer {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  font-size: 1.6em;
+  margin-top: 4vh;
+  border-top: 3px solid black;
 }

@@ -3,7 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body {
+  background-color: #d6d6d6;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -11,7 +13,7 @@
 }
 
 .dices {
-  /* margin-left: -6vw; */
+  background-color: #fff;
   min-height: 10vh;
   width: 50vw;
   display: flex;
@@ -34,16 +36,26 @@
   border-radius: 50%;
 }
 .allDices {
+  padding: 20px;
+  min-height: 20vh;
+  height: auto;
+  width: 60vw;
+  background-color: #e6e6e6;
+  border: 2px solid black;
   margin-top: 2vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .diceRolled {
+  background-color: #fff;
   height: 100px;
   width: 100px;
-  border: 2px solid black;
+  border: 4px solid rgb(29, 157, 0);
   margin-left: 0.4vw;
+  margin-top: 0.2vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +63,7 @@
 }
 
 .diceRolled:hover {
-  background-color: #ffba60;
+  background-color: #55ec61;
 }
 .params {
   font-size: 1.1em;
@@ -60,4 +72,37 @@
 }
 .quantity {
   padding: 10px;
+}
+
+.removedDices {
+  color: rgb(255, 255, 255);
+  margin-top: 5vh;
+  border: 2px solid rgb(203, 4, 4);
+  min-height: 20vh;
+  height: auto;
+  width: 60vw;
+  background-color: #c9c9c9;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.info {
+  color: #fff;
+  font-size: 1.5em;
+}
+
+.diceRemoved {
+  background-color: #ffffff;
+  height: 80px;
+  width: 80px;
+  border: 4px solid rgb(154, 1, 1);
+  margin-left: 0.4vw;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  font-size: 2em;
+  color: blue;
 }

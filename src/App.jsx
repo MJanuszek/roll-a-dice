@@ -5,7 +5,9 @@ import "./App.css";
 function App() {
   const [inputQuantity, setDiceQuantity] = useState(0);
   const [diceQuantity, setQuantityToRoll] = useState([]);
+  const [dicesRolled, setDicesRolled] = useState(0);
   const [dicesRemoved, setRemovedDices] = useState(0);
+  const [displayRemoved, setDisplayRemoved] = useState([]);
   // --------
   function getRandomNumber() {
     return Math.floor(Math.random() * 6) + 1;
@@ -22,15 +24,20 @@ function App() {
       value: getRandomNumber(),
     }));
     setQuantityToRoll(dicesArray);
+    setDicesRolled(dicesArray.length);
     setDiceQuantity(0);
     setRemovedDices(0);
+    setDisplayRemoved([]);
   }
 
   function handleRemoveDice(id) {
-    console.log(id);
     const updateDices = diceQuantity.filter((dice) => dice.id !== id);
     setQuantityToRoll(updateDices);
     setRemovedDices((prev) => prev + 1);
+    const removedToDisplay = diceQuantity.find((dice) => dice.id === id);
+
+    // setDisplayRemoved([...displayRemoved, removedToDisplay]);
+    setDisplayRemoved((prevDices) => [...prevDices, removedToDisplay]);
   }
 
   return (
@@ -52,7 +59,7 @@ function App() {
             alt="dice"
             onClick={handleRollDices}
           />
-          <h2>Dices rolled: {inputQuantity}</h2>
+          <h2>Dices rolled: {dicesRolled}</h2>
           <h2>Removed: {dicesRemoved}</h2>
         </div>
       </div>
@@ -69,6 +76,26 @@ function App() {
             </div>
           );
         })}
+      </div>
+      <div className="removedDices">
+        <p className="info">Removed:</p>
+
+        {displayRemoved.map((dice) => {
+          return (
+            <div key={dice.id} className="diceRemoved">
+              {dice.value}
+            </div>
+          );
+        })}
+
+        {/* ------------ */}
+        {/* {displayRemoved.map((dice) => {
+          return (
+            <div key={dice.id} className="diceRemoved">
+              {dice.value}
+            </div>
+          );
+        })} */}
       </div>
     </div>
   );

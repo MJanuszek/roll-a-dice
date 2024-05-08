@@ -227,7 +227,7 @@ function App() {
               <div
                 key={dice.id}
                 className={`diceRolled ${dice.added} `}
-                style={{ border: `4px solid ${dice.color}`, color: dice.color }}
+                style={{ border: `4px solid ${dice.color}`, color: "black" }}
                 onClick={() => handleRemoveDice(dice.id)}
               >
                 {dice.value}

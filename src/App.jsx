@@ -8,6 +8,7 @@ function App() {
   const [dicesRolled, setDicesRolled] = useState(0);
   const [dicesRemoved, setRemovedDices] = useState(0);
   const [displayRemoved, setDisplayRemoved] = useState([]);
+  const [addedDices, setAddedDices] = useState(0);
   // --------
   function getRandomNumber() {
     return Math.floor(Math.random() * 6) + 1;
@@ -28,6 +29,15 @@ function App() {
     setDiceQuantity(0);
     setRemovedDices(0);
     setDisplayRemoved([]);
+  }
+
+  function handleAddDice() {
+    setAddedDices((prev) => prev + 1);
+    let newDice = {
+      id: diceQuantity.length + getRandomNumber() * 11,
+      value: getRandomNumber(),
+    };
+    setQuantityToRoll((prevDices) => [...prevDices, newDice]);
   }
 
   function handleRemoveDice(id) {
@@ -61,10 +71,11 @@ function App() {
           />
           <h2>Dices rolled: {dicesRolled}</h2>
           <h2>Removed: {dicesRemoved}</h2>
+          <h2>Dices added: {addedDices}</h2>
         </div>
       </div>
       <div className="allDices">
-        {" "}
+        <p className="info">In game:</p>
         {diceQuantity.map((dice) => {
           return (
             <div
@@ -76,10 +87,23 @@ function App() {
             </div>
           );
         })}
+        {/* {addedDices.map((dice) => {
+          return (
+            <div
+              key={dice.id}
+              className="diceRolled addedDice"
+              onClick={() => handleRemoveDice(dice.id)}
+            >
+              {dice.value}
+            </div>
+          );
+        })} */}
       </div>
+      <button className="addDice" onClick={handleAddDice}>
+        Add dice
+      </button>
       <div className="removedDices">
         <p className="info">Removed:</p>
-
         {displayRemoved.map((dice) => {
           return (
             <div key={dice.id} className="diceRemoved">
@@ -87,15 +111,6 @@ function App() {
             </div>
           );
         })}
-
-        {/* ------------ */}
-        {/* {displayRemoved.map((dice) => {
-          return (
-            <div key={dice.id} className="diceRemoved">
-              {dice.value}
-            </div>
-          );
-        })} */}
       </div>
     </div>
   );

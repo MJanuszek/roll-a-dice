@@ -62,7 +62,7 @@ function App() {
     const removedNumers = diceQuantity.filter(
       (dice) => dice.value !== btnIdNumber
     );
-
+    setRemovedDices((prev) => prev + removedDicesToDisplay.length);
     setQuantityToRoll(removedNumers);
 
     setDisplayRemoved((prevDices) => [...prevDices, ...removedDicesToDisplay]);
@@ -96,57 +96,61 @@ function App() {
         </div>
       </div>
       {/* --------PARAMS^ */}
-      <div className="allDices">
-        <p className="info">In game:</p>
-        {diceQuantity.map((dice) => {
-          return (
-            <div
-              key={dice.id}
-              className={`diceRolled ${dice.added}`}
-              onClick={() => handleRemoveDice(dice.id)}
-            >
-              {dice.value}
-            </div>
-          );
-        })}
-      </div>
-      <div className="buttons">
-        <button className="btn addDice" id="add" onClick={handleAddDice}>
-          Add dice
-        </button>
-        <button
-          className="btn"
-          id="1"
-          onClick={(event) => handleDelete(event.target.id)}
-        >
-          Delete 1
-        </button>
-        <button
-          className="btn"
-          id="2"
-          onClick={(event) => handleDelete(event.target.id)}
-        >
-          Delete 2
-        </button>
-        <button
-          className="btn"
-          id="3"
-          onClick={(event) => handleDelete(event.target.id)}
-        >
-          Delete 3
-        </button>
-      </div>
 
-      {/* REMOVED */}
-      <div className="removedDices">
-        <p className="info">Removed:</p>
-        {displayRemoved.map((dice) => {
-          return (
-            <div key={dice.id} className="diceRemoved">
-              {dice.value}
-            </div>
-          );
-        })}
+      <div className="allDices">
+        <div className="inGame">
+          <p className="info">In game:</p>
+          {diceQuantity.map((dice) => {
+            return (
+              <div
+                key={dice.id}
+                className={`diceRolled ${dice.added}`}
+                onClick={() => handleRemoveDice(dice.id)}
+              >
+                {dice.value}
+              </div>
+            );
+          })}
+        </div>
+        <div className="buttons">
+          <button className="btn addDice" id="add" onClick={handleAddDice}>
+            Add dice
+          </button>
+          <button
+            className="btn"
+            id="1"
+            onClick={(event) => handleDelete(event.target.id)}
+          >
+            Delete 1
+          </button>
+          <button
+            className="btn"
+            id="2"
+            onClick={(event) => handleDelete(event.target.id)}
+          >
+            Delete 2
+          </button>
+          <button
+            className="btn"
+            id="3"
+            onClick={(event) => handleDelete(event.target.id)}
+          >
+            Delete 3
+          </button>
+        </div>
+      </div>
+      <div className="removed">
+        {/* REMOVED */}
+        <div className="removedDices">
+          <p className="info">Removed:</p>
+          {displayRemoved.map((dice) => {
+            return (
+              <div key={dice.id} className="diceRemoved">
+                {dice.value}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

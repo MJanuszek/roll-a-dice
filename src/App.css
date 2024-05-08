@@ -5,6 +5,7 @@
 }
 body {
   background-image: url("../src/assets/mockaroon-YqUeLG7fMr4-unsplash.jpg");
+  /* background-image: url("../src/assets/rohro-clark-Jgdbp3pPj9Q-unsplash.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -13,6 +14,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 .label {
   font-size: 1.6em;
 }
@@ -42,11 +44,12 @@ body {
 }
 .allDices {
   padding: 20px;
-  min-height: 17vh;
   height: auto;
+  min-height: 17vh;
   width: 60vw;
+  max-width: 60vw;
   background-color: #e6e6e6;
-  background-image: linear-gradient(to right, #9b9b9b 0%, #e4e2e2 100%);
+  background-image: linear-gradient(to right, #b9b9b9 0%, #e4e2e2 100%);
   border: 4px solid black;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5);
   margin-top: 2vh;
@@ -54,17 +57,26 @@ body {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.inGame {
+  display: flex;
+  margin-bottom: 3vh;
+  flex-wrap: wrap;
 }
 
 .diceRolled {
-  color: #049610;
+  color: #04800f;
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.5);
   background-color: #fff;
   height: 80px;
   width: 80px;
-  border: 4px solid rgb(29, 157, 0);
+  border: 5px solid rgb(29, 157, 0);
   margin-left: 0.4vw;
   margin-top: 0.2vh;
   display: flex;
+  margin-top: 1vh;
   justify-content: center;
   align-items: center;
   font-size: 2em;
@@ -90,9 +102,10 @@ body {
   margin-top: 5vh;
   border: 4px solid black;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5);
-  min-height: 17vh;
   height: auto;
+  min-height: 17vh;
   width: 60vw;
+  max-width: 60vw;
   background-image: linear-gradient(to left, #9b9b9b 0%, #e4e2e2 100%);
   display: flex;
   align-items: center;
@@ -110,18 +123,19 @@ body {
   height: 80px;
   width: 80px;
   border-radius: 12px;
-  border: 4px solid rgb(202, 7, 7);
+  border: 5px solid rgb(202, 7, 7);
   margin-left: 0.4vw;
   display: flex;
   justify-content: center;
-
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.5);
   align-items: center;
   font-size: 2em;
   color: rgb(236, 19, 19);
+  margin-top: 1vh;
 }
 
 .btn {
-  border: 3px solid black;
+  border: 3px solid rgb(36, 36, 36);
   margin-left: 3px;
   font-size: 1.6em;
   padding: 20px;
@@ -135,6 +149,6 @@ body {
   font-size: 1.5em;
 }
 .added {
-  border: 4px solid rgb(33, 85, 239);
+  border: 5px solid rgb(33, 85, 239);
   color: #334bc5;
 }

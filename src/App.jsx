@@ -55,13 +55,17 @@ function App() {
 
   function handleDelete(btnId) {
     const btnIdNumber = parseInt(btnId, 10);
-    console.log(diceQuantity[2].value);
-    console.log(btnId);
+
+    const removedDicesToDisplay = diceQuantity.filter(
+      (dice) => dice.value === btnIdNumber
+    );
     const removedNumers = diceQuantity.filter(
       (dice) => dice.value !== btnIdNumber
     );
-    console.log(diceQuantity);
+
     setQuantityToRoll(removedNumers);
+
+    setDisplayRemoved((prevDices) => [...prevDices, ...removedDicesToDisplay]);
   }
 
   return (

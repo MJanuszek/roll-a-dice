@@ -34,16 +34,27 @@
   border-radius: 50%;
 }
 .allDices {
+  margin-top: 2vh;
   display: flex;
+  justify-content: space-around;
 }
 
 .diceRolled {
   height: 100px;
   width: 100px;
   border: 2px solid black;
+  margin-left: 0.4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.diceRolled:hover {
+  background-color: #ffba60;
 }
 .params {
-  font-size: 1.4em;
+  font-size: 1.1em;
   display: flex;
   flex-direction: column;
 }

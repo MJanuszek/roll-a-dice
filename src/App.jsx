@@ -5,6 +5,8 @@ import "./App.css";
 function App() {
   const [inputQuantity, setDiceQuantity] = useState(0);
   const [diceQuantity, setQuantityToRoll] = useState([]);
+  const [dicesRemoved, setRemovedDices] = useState(0);
+  // --------
   function getRandomNumber() {
     return Math.floor(Math.random() * 6) + 1;
   }
@@ -21,6 +23,14 @@ function App() {
     }));
     setQuantityToRoll(dicesArray);
     setDiceQuantity(0);
+    setRemovedDices(0);
+  }
+
+  function handleRemoveDice(id) {
+    console.log(id);
+    const updateDices = diceQuantity.filter((dice) => dice.id !== id);
+    setQuantityToRoll(updateDices);
+    setRemovedDices((prev) => prev + 1);
   }
 
   return (
@@ -43,18 +53,22 @@ function App() {
             onClick={handleRollDices}
           />
           <h2>Dices rolled: {inputQuantity}</h2>
-          <h2>Removed: 0</h2>
-          <div className="allDices">
-            {" "}
-            {diceQuantity.map((dice) => {
-              return (
-                <div key={dice.id} className="diceRolled">
-                  {dice.value}
-                </div>
-              );
-            })}
-          </div>
+          <h2>Removed: {dicesRemoved}</h2>
         </div>
+      </div>
+      <div className="allDices">
+        {" "}
+        {diceQuantity.map((dice) => {
+          return (
+            <div
+              key={dice.id}
+              className="diceRolled"
+              onClick={() => handleRemoveDice(dice.id)}
+            >
+              {dice.value}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

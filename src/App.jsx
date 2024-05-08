@@ -122,7 +122,7 @@ function App() {
       <div className="dices">
         <div className="params">
           <label className="label" htmlFor="">
-            Number of dices:
+            Select number of dices:
           </label>
           <input
             className="quantity"
@@ -141,9 +141,9 @@ function App() {
           <p className="roll" onClick={handleRollDices}>
             Roll/Reset
           </p>
-          <h2>Dices rolled: {dicesRolled}</h2>
-          <h2>Removed: {dicesRemoved}</h2>
-          <h2>Dices added: {addedDices}</h2>
+          <h2 className="dicesCountStats">Dices rolled: {dicesRolled}</h2>
+          <h2 className="dicesCountStats">Removed: {dicesRemoved}</h2>
+          <h2 className="dicesCountStats">Dices added: {addedDices}</h2>
           <div className="statistics">
             <h3 className="dices-count">Nb of 6:</h3>
             <div className="count">{all6}</div>

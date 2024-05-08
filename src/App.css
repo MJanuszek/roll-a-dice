@@ -165,7 +165,7 @@ body {
 }
 
 .statistics {
-  width: 40vw;
+  width: 53vw;
   margin-top: 1.5vh;
   display: flex;
   justify-content: space-around;
@@ -185,6 +185,13 @@ body {
 
 .btn-add {
   background-color: #33e08d;
+}
+.btn-reroll {
+  background-color: #fdf623;
+}
+
+.reroll {
+  border: 4px solid rgb(190, 92, 239);
 }
 
 .count {

@@ -98,6 +98,17 @@ function App() {
     setAll1(all1.length);
   }
 
+  function handeRerollDices() {
+    let newResult = diceQuantity.map((dice, index) => {
+      return {
+        id: index + 1,
+        value: getRandomNumber(),
+        added: "reroll",
+      };
+    });
+    setQuantityToRoll(newResult);
+  }
+
   return (
     <div className="container">
       <div className="dices">
@@ -157,45 +168,48 @@ function App() {
             id="1"
             onClick={(event) => handleDelete(event.target.id)}
           >
-            Delete 1
+            Del 1
           </button>
           <button
             className="btn"
             id="2"
             onClick={(event) => handleDelete(event.target.id)}
           >
-            Delete 2
+            Del 2
           </button>
           <button
             className="btn"
             id="3"
             onClick={(event) => handleDelete(event.target.id)}
           >
-            Delete 3
+            Del 3
           </button>
           <button
             className="btn"
             id="4"
             onClick={(event) => handleDelete(event.target.id)}
           >
-            Delete 4
+            Del 4
           </button>
           <button
             className="btn"
             id="5"
             onClick={(event) => handleDelete(event.target.id)}
           >
-            Delete 5
+            Del 5
           </button>
           <button
             className="btn"
             id="6"
             onClick={(event) => handleDelete(event.target.id)}
           >
-            Delete 6
+            Del 6
           </button>
           <button className="btn count-btn" onClick={handleCountDices}>
             Count
+          </button>
+          <button className="btn btn-reroll" onClick={handeRerollDices}>
+            Reroll
           </button>
         </div>
         <p className="info">In game:</p>

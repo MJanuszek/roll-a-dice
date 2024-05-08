@@ -12,6 +12,9 @@ function App() {
   const [all6, setAll6] = useState(0);
   const [all5, setAll5] = useState(0);
   const [all4, setAll4] = useState(0);
+  const [all3, setAll3] = useState(0);
+  const [all2, setAll2] = useState(0);
+  const [all1, setAll1] = useState(0);
   // --------
   function getRandomNumber() {
     return Math.floor(Math.random() * 6) + 1;
@@ -23,13 +26,7 @@ function App() {
   }
 
   function handleRollDices() {
-    const dicesArray = Array.from({ length: inputQuantity }, (v, i) => ({
-      id: i + 1,
-      value: getRandomNumber(),
-      added: "not",
-    }));
-    setQuantityToRoll(dicesArray);
-    setDicesRolled(dicesArray.length);
+    // clean--------
     setDiceQuantity(0);
     setRemovedDices(0);
     setDisplayRemoved([]);
@@ -37,6 +34,17 @@ function App() {
     setAll6(0);
     setAll5(0);
     setAll4(0);
+    setAll3(0);
+    setAll2(0);
+    setAll1(0);
+    // -----------
+    const dicesArray = Array.from({ length: inputQuantity }, (v, i) => ({
+      id: i + 1,
+      value: getRandomNumber(),
+      added: "not",
+    }));
+    setQuantityToRoll(dicesArray);
+    setDicesRolled(dicesArray.length);
   }
 
   function handleAddDice() {
@@ -82,6 +90,12 @@ function App() {
     setAll5(all5.length);
     const all4 = diceQuantity.filter((dice) => dice.value === 4);
     setAll4(all4.length);
+    const all3 = diceQuantity.filter((dice) => dice.value === 3);
+    setAll3(all3.length);
+    const all2 = diceQuantity.filter((dice) => dice.value === 2);
+    setAll2(all2.length);
+    const all1 = diceQuantity.filter((dice) => dice.value === 1);
+    setAll1(all1.length);
   }
 
   return (
@@ -99,13 +113,15 @@ function App() {
             onChange={handleInputChange}
           />
 
-          <img
+          {/* <img
             className="dice"
             src="src/assets/11121422_fi_rr_dice_d6_icon.png"
             alt="dice"
             onClick={handleRollDices}
-          />
-          <p className="roll">Roll/Reset</p>
+          /> */}
+          <p className="roll" onClick={handleRollDices}>
+            Roll/Reset
+          </p>
           <h2>Dices rolled: {dicesRolled}</h2>
           <h2>Removed: {dicesRemoved}</h2>
           <h2>Dices added: {addedDices}</h2>
@@ -116,6 +132,12 @@ function App() {
             <div className="count">{all5}</div>
             <h3 className="dices-count">Nb of 4:</h3>
             <div className="count">{all4}</div>
+            <h3 className="dices-count">Nb of 3:</h3>
+            <div className="count">{all3}</div>
+            <h3 className="dices-count">Nb of 2:</h3>
+            <div className="count">{all2}</div>
+            <h3 className="dices-count">Nb of 1:</h3>
+            <div className="count">{all1}</div>
           </div>
         </div>
       </div>
@@ -123,7 +145,11 @@ function App() {
 
       <div className="allDices">
         <div className="buttons">
-          <button className="btn addDice" id="add" onClick={handleAddDice}>
+          <button
+            className="btn addDice btn-add"
+            id="add"
+            onClick={handleAddDice}
+          >
             Add dice
           </button>
           <button
@@ -146,6 +172,27 @@ function App() {
             onClick={(event) => handleDelete(event.target.id)}
           >
             Delete 3
+          </button>
+          <button
+            className="btn"
+            id="4"
+            onClick={(event) => handleDelete(event.target.id)}
+          >
+            Delete 4
+          </button>
+          <button
+            className="btn"
+            id="5"
+            onClick={(event) => handleDelete(event.target.id)}
+          >
+            Delete 5
+          </button>
+          <button
+            className="btn"
+            id="6"
+            onClick={(event) => handleDelete(event.target.id)}
+          >
+            Delete 6
           </button>
           <button className="btn count-btn" onClick={handleCountDices}>
             Count

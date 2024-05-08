@@ -12,17 +12,41 @@
 
 .dices {
   /* margin-left: -6vw; */
-  height: 10vh;
+  min-height: 10vh;
   width: 50vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   border: 1px solid black;
   padding: 40px;
   margin-top: 7vh;
 }
 
+.dice {
+  height: 68px;
+  width: 68px;
+  margin-top: 3vh;
+  margin-bottom: 2vh;
+}
+
 .dice:hover {
   box-shadow: 10px 10px 20px 0px rgba(240, 255, 35, 0.902);
   border-radius: 50%;
+}
+.allDices {
+  display: flex;
+}
+
+.diceRolled {
+  height: 100px;
+  width: 100px;
+  border: 2px solid black;
+}
+.params {
+  font-size: 1.4em;
+  display: flex;
+  flex-direction: column;
+}
+.quantity {
+  padding: 10px;
 }

@@ -98,12 +98,20 @@ function App() {
     setAll1(all1.length);
   }
 
+  function getRandomColor() {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+    return `rgb(${red}, ${green}, ${blue})`;
+  }
+
   function handeRerollDices() {
+    let color = getRandomColor();
     let newResult = diceQuantity.map((dice, index) => {
       return {
         id: index + 1,
         value: getRandomNumber(),
-        added: "reroll",
+        color: color,
       };
     });
     setQuantityToRoll(newResult);
@@ -218,7 +226,8 @@ function App() {
             return (
               <div
                 key={dice.id}
-                className={`diceRolled ${dice.added}`}
+                className={`diceRolled ${dice.added} `}
+                style={{ border: `4px solid ${dice.color}`, color: dice.color }}
                 onClick={() => handleRemoveDice(dice.id)}
               >
                 {dice.value}

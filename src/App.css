@@ -223,13 +223,25 @@ body {
   .container {
     padding: 10px;
     margin: auto;
+    width: 100%;
+    border: 2px solid green;
+  }
+  .dices {
+    width: 90%;
+  }
+
+  .dices-count {
+    margin-top: 1vh;
+    padding: 7px;
+    box-shadow: none;
   }
   .params,
   .allDices,
   .removed {
-    width: 100%;
+    width: 100vw;
     box-sizing: border-box;
   }
+
   .buttons button,
   .dices .params .roll {
     width: 100%;
@@ -237,11 +249,12 @@ body {
   }
   .statistics,
   .removedDices,
-  .inGame {
+  .inGame,
+  .removed {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    flex-direction: column;
+    align-items: center;
     max-width: 100%;
   }
   .statistics .count {
@@ -251,6 +264,10 @@ body {
   .diceRemoved {
     margin: 5px;
     flex: 1 1 40%;
+    padding: 5px;
+    max-width: 40px;
+    max-height: 40px;
+    font-size: 22px;
   }
   .footer {
     flex-direction: column;

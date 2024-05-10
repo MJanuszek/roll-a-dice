@@ -131,13 +131,6 @@ function App() {
             value={inputQuantity}
             onChange={handleInputChange}
           />
-
-          {/* <img
-            className="dice"
-            src="src/assets/11121422_fi_rr_dice_d6_icon.png"
-            alt="dice"
-            onClick={handleRollDices}
-          /> */}
           <p className="roll" onClick={handleRollDices}>
             Roll/Reset
           </p>

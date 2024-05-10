@@ -162,7 +162,7 @@ function App() {
             id="add"
             onClick={handleAddDice}
           >
-            Add dice
+            Add
           </button>
           <button
             className="btn"

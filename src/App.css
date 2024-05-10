@@ -229,19 +229,26 @@ body {
     width: 90%;
   }
 
-  .dices-count {
+  .dices-count,
+  .count {
     margin-top: 1vh;
     padding: 4px;
     box-shadow: none;
-    font-size: 1.1em;
+    font-size: 1em;
   }
-  .statistics {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  .count {
+    box-shadow: 6px 5px 5px #face3bc7;
+    color: #d11dbc;
   }
 
+  .statistics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  /* -------------------- */
   .allDices {
     min-width: 90%;
     max-width: 90%;
@@ -261,12 +268,16 @@ body {
     padding: 7px;
   }
   .btn {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    width: auto;
     justify-content: center;
+    margin-bottom: 5px;
+  }
 
-    margin-bottom: 10px;
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 10px;
   }
 
   .removedDices {

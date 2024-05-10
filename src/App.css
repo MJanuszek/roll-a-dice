@@ -224,7 +224,6 @@ body {
     padding: 10px;
     margin: auto;
     width: 100%;
-    border: 2px solid green;
   }
   .dices {
     width: 90%;
@@ -232,34 +231,53 @@ body {
 
   .dices-count {
     margin-top: 1vh;
-    padding: 7px;
+    padding: 4px;
     box-shadow: none;
+    font-size: 1.1em;
   }
-  .params,
-  .allDices,
-  .removed {
-    width: 100vw;
-    box-sizing: border-box;
-  }
-
-  .buttons button,
-  .dices .params .roll {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  .statistics,
-  .removedDices,
-  .inGame,
-  .removed {
+  .statistics {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
   }
-  .statistics .count {
+
+  .allDices {
+    min-width: 90%;
+    max-width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url("../src/assets/mockaroon-YqUeLG7fMr4-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .inGame {
+    padding: 5px;
+    border-radius: 10px;
+  }
+  .roll {
     width: 50%;
+    padding: 7px;
   }
+  .btn {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin-bottom: 10px;
+  }
+
+  .removedDices {
+    min-width: 90vw;
+    max-width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
   .diceRolled,
   .diceRemoved {
     margin: 5px;

@@ -217,3 +217,46 @@ body {
   margin-top: 2vh;
   border-top: 3px solid black;
 }
+/* --------------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+    margin: auto;
+  }
+  .params,
+  .allDices,
+  .removed {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .buttons button,
+  .dices .params .roll {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .statistics,
+  .removedDices,
+  .inGame {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .statistics .count {
+    width: 50%;
+  }
+  .diceRolled,
+  .diceRemoved {
+    margin: 5px;
+    flex: 1 1 40%;
+  }
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-info {
+    margin-bottom: 5px;
+  }
+}
